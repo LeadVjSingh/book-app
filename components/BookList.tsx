@@ -8,79 +8,107 @@ const persons = [
         id: "1",
         name: "Earnest Green",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "2",
         name: "Winston Orn",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "3",
         name: "Carlton Collins",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "4",
         name: "Malcolm Labadie",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "5",
         name: "Michelle Dare",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "6",
         name: "Carlton Zieme",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "7",
         name: "Jessie Dickinson",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "8",
         name: "Julian Gulgowski",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "9",
         name: "Ellen Veum",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "10",
         name: "Lorena Rice",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
 
     {
         id: "11",
         name: "Carlton Zieme",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "12",
         name: "Jessie Dickinson",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "13",
         name: "Julian Gulgowski",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "14",
         name: "Ellen Veum",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
     {
         id: "15",
         name: "Lorena Rice",
         src: 'https://picsum.photos/200/300',
+        price: '100',
     },
 ];
+
+const apiResponse = [
+    { id: "1", title: "레이블라우스", description: "book details", dicount: "10%", price: '57,600', src: 'https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6' },
+    { id: "2", title: "레이블라우스", description: "book details", dicount: "10%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "3", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "4", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "5", title: "레이블라우스", description: "book details", dicount: "20%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "6", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "7", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "8", title: "레이블라우스", description: "book details", dicount: "20%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "9", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+    { id: "10", title: "레이블라우스", description: "book details", dicount: "40%", price: '57,600', src: "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6" },
+]
 const images = [
     {
         "name": "Miyah Myles",
@@ -148,16 +176,22 @@ export default function BookList() {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={persons}
+                data={apiResponse}
                 renderItem={({ item }) => {
                     return (
                         <View>
                             <View style={styles.container}>
                                 <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
-                                    <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
-                                        {item.name}</Text>
-                                    <Image source={{ uri: item.src }} style={{ height: 100, width: 100 }} />
+
+                                    <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
+
                                 </View>
+                                <view>
+                                    <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
+                                        {item.title}</Text>
+                                    <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
+                                        {item.price}</Text>
+                                </view>
 
                             </View>
                         </View>
@@ -167,7 +201,6 @@ export default function BookList() {
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={myItemSeparator}
                 ListEmptyComponent={myListEmpty}
-
             >
             </FlatList>
         </SafeAreaView>
