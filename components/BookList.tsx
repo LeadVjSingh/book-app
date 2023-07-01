@@ -158,6 +158,7 @@ export default function BookList() {
                                         {item.name}</Text>
                                     <Image source={{ uri: item.src }} style={{ height: 100, width: 100 }} />
                                 </View>
+
                             </View>
                         </View>
                     )
@@ -166,14 +167,7 @@ export default function BookList() {
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={myItemSeparator}
                 ListEmptyComponent={myListEmpty}
-                ListHeaderComponent={() => (
-                    <Text style={{ fontSize: 30, textAlign: "center", marginTop: 20, fontWeight: 'bold', textDecorationLine: 'underline' }}>
-                        List of Persons
-                    </Text>
-                )}
-                ListFooterComponent={() => (
-                    <Text style={{ fontSize: 30, textAlign: "center", marginBottom: 20, fontWeight: 'bold' }}>Thank You</Text>
-                )}
+
             >
             </FlatList>
         </SafeAreaView>
