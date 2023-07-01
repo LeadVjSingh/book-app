@@ -119,7 +119,7 @@ export default function BookList({ navigation }) {
                                         {item.title} </Text>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.price} 원</Text>
-                                    <Button title="Go to Home" onPress={() => navigation.navigate('Details')} />
+                                    <Button title="Go to Home" onPress={() => navigation.navigate('Details', { item })} />
                                 </View>
 
                             </View>

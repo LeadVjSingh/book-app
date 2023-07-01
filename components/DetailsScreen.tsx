@@ -1,15 +1,17 @@
 import { View, Button, Text } from "react-native";
 
-export default function DetailsScreen({ navigation }) {
+export default function DetailsScreen({ route }) {
+    console.log("here is the props", route.params)
+
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Details Screen</Text>
+            <Text>{route.params.title}</Text>
             <Button
-                title="Go to Details... again"
-                onPress={() => navigation.push('Details')}
+                title={route.params.description}
+                onPress={() => route.push('Details')}
             />
-            <Button title="Go to 자유톡" onPress={() => navigation.navigate('BookList')} />
-            <Button title="Go back" onPress={() => navigation.goBack()} />
+            <Button title="Go to 자유톡" onPress={() => route.navigate('BookList')} />
+            <Button title="Go back" onPress={() => route.goBack()} />
         </View>
     );
 }
