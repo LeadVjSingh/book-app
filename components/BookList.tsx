@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button, TouchableNativeFeedback, TouchableHighlight } from 'react-native';
 import myItemSeparator from './myItemSeparator';
 import myListEmpty from './myListEmpty';
 import { useState, useEffect } from 'react';
@@ -111,16 +111,20 @@ export default function BookList({ navigation }) {
                         <View>
                             {refreshing ? <ActivityIndicator /> : null}
                             <View style={styles.container}>
+
                                 <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
-                                    <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
+                                    <TouchableHighlight onPressOut={() => navigation.navigate('Details', { item })}>
+                                        <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
+                                    </TouchableHighlight>
                                 </View>
                                 <View style={{ alignItems: 'stretch', flexDirection: 'row' }}>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.title} </Text>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.price} 원</Text>
-                                    <Button title="Go to Home" onPress={() => navigation.navigate('Details', { item })} />
+                                    {/* <Button title="Go to Home" onPress={() => navigation.navigate('Details', { item })} /> */}
                                 </View>
+
 
                             </View>
                         </View>
@@ -131,7 +135,7 @@ export default function BookList({ navigation }) {
                 ItemSeparatorComponent={myItemSeparator}
                 ListEmptyComponent={myListEmpty}
                 refreshControl={
-                    <RefreshControl refreshing={refreshing} onRefresh={loadUserData} />
+                    < RefreshControl refreshing={refreshing} onRefresh={loadUserData} />
                 }
                 ListHeaderComponent={() => (
                     <Text style={{ fontSize: 30, textAlign: "center", marginTop: 20, fontWeight: 'bold', textDecorationLine: 'underline' }}>
@@ -139,8 +143,8 @@ export default function BookList({ navigation }) {
                     </Text>
                 )}
             >
-            </FlatList>
-        </SafeAreaView>
+            </FlatList >
+        </SafeAreaView >
     );
 }
 

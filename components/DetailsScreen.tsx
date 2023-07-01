@@ -5,11 +5,8 @@ export default function DetailsScreen({ route }) {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>{route.params.title}</Text>
-            <Button
-                title={route.params.description}
-                onPress={() => route.push('Details')}
-            />
+            <Text>{route.params.title} Hello</Text>
+
             <Button title="Go to 자유톡" onPress={() => route.navigate('BookList')} />
             <Button title="Go back" onPress={() => route.goBack()} />
         </View>
