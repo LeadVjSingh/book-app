@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button } from 'react-native';
 import myItemSeparator from './myItemSeparator';
 import myListEmpty from './myListEmpty';
 import { useState, useEffect } from 'react';
-
 
 
 const apiResponse = [
@@ -81,7 +80,7 @@ const images = [
     }
 ]
 
-export default function BookList() {
+export default function BookList({ navigation }) {
     const [refreshing, setRefreshing] = useState(true);
     const [userData, setUserData] = useState([]);
     useEffect(() => {
@@ -113,15 +112,14 @@ export default function BookList() {
                             {refreshing ? <ActivityIndicator /> : null}
                             <View style={styles.container}>
                                 <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
-
                                     <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
-
                                 </View>
                                 <View style={{ alignItems: 'stretch', flexDirection: 'row' }}>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.title} </Text>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.price} 원</Text>
+                                    <Button title="Go to Home" onPress={() => navigation.navigate('Details')} />
                                 </View>
 
                             </View>

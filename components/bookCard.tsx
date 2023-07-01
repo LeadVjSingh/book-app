@@ -1,7 +1,7 @@
 
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default function bookCard(props: any) {
+export default function BookCard(props: any) {
     return (
         <View style={styles.container}>
             <View style={{ backgroundColor: '#529FF3', margin: 10 }}>

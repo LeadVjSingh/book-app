@@ -1,12 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import BookList from './components/BookList';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import DetailsScreen from './components/DetailsScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <BookList></BookList>
-    </View>
+    // <View style={styles.container}>
+
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="자유톡">
+        <Stack.Screen name="자유톡" component={BookList} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    // </View>
   );
 }
 
