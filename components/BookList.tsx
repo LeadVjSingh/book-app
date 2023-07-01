@@ -1,8 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button, TouchableNativeFeedback, TouchableHighlight } from 'react-native';
+
+import { FlatList, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button, TouchableNativeFeedback, TouchableHighlight } from 'react-native';
 import myItemSeparator from './myItemSeparator';
 import myListEmpty from './myListEmpty';
 import { useState, useEffect } from 'react';
+import SafeAreaView from 'react-native-safe-area-view';
 
 
 const apiResponse = [
