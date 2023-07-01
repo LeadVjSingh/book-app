@@ -117,11 +117,11 @@ export default function BookList() {
                                     <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
 
                                 </View>
-                                <View>
+                                <View style={{ alignItems: 'stretch', flexDirection: 'row' }}>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
-                                        {item.title}</Text>
+                                        {item.title} </Text>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
-                                        {item.price}</Text>
+                                        {item.price} 원</Text>
                                 </View>
 
                             </View>
@@ -135,6 +135,11 @@ export default function BookList() {
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={loadUserData} />
                 }
+                ListHeaderComponent={() => (
+                    <Text style={{ fontSize: 30, textAlign: "center", marginTop: 20, fontWeight: 'bold', textDecorationLine: 'underline' }}>
+                        자유톡
+                    </Text>
+                )}
             >
             </FlatList>
         </SafeAreaView>
@@ -147,6 +152,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 50,
+
     },
     item: {
         padding: 20,
