@@ -86,9 +86,12 @@ export default function bookCard(props: any) {
     return (
         <View style={styles.container}>
             <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
+
+                <Image source={{ uri: props.item.src }} style={{ height: 100, width: 100 }} />
                 <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                     {props.item.name}</Text>
-                <Image source={{ uri: props.item.src }} style={{ height: 100, width: 100 }} />
+                <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
+                    {props.item.name}</Text>
             </View>
         </View>
     );
