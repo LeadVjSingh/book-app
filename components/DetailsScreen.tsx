@@ -1,17 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator, Button, TouchableNativeFeedback, TouchableHighlight } from 'react-native';
-import myItemSeparator from './myItemSeparator';
-import myListEmpty from './myListEmpty';
-import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+
 
 export default function DetailsScreen({ route }) {
-    // console.log("here is the props", route.params)
-    route.params = {
-        item: {
-            id: "1", title: "레이블라우스", discount: "10%", description: "Description of the book.. \
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", dicount: "10%", price: '57, 600', src: 'https: \/\/ images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6'
-        }
-    };
+
+
     return (
         <View>
 
