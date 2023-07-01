@@ -1,27 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image, RefreshControl, ActivityIndicator } from 'react-native';
 import myItemSeparator from './myItemSeparator';
 import myListEmpty from './myListEmpty';
 import { useState, useEffect } from 'react';
 
-const [refreshing, setRefreshing] = useState(true);
-const [userData, setUserData] = useState([]);
-useEffect(() => {
-    loadUserData();
-}, []);
 
-const loadUserData = () => {
-    fetch('https://randomuser.me/api/?results=8')
-        .then((response) => response.json())
-        .then((responseJson) => {
-            setRefreshing(false);
-            var newdata = userData.concat(responseJson.results);
-            setUserData(newdata);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
 
 const apiResponse = [
     { id: "1", title: "레이블라우스", description: "book details", dicount: "10%", price: '57,600', src: 'https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6' },
@@ -99,6 +82,27 @@ const images = [
 ]
 
 export default function BookList() {
+    const [refreshing, setRefreshing] = useState(true);
+    const [userData, setUserData] = useState([]);
+    useEffect(() => {
+        loadUserData();
+    }, []);
+
+    const loadUserData = () => {
+        fetch('https://randomuser.me/api/?results=100')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log("response received");
+                setRefreshing(false);
+                var newdata = userData.concat(responseJson.results);
+                setUserData(newdata);
+            })
+            .catch((error) => {
+                console.log("response error", error);
+                console.error(error);
+            });
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
@@ -106,18 +110,19 @@ export default function BookList() {
                 renderItem={({ item }) => {
                     return (
                         <View>
+                            {refreshing ? <ActivityIndicator /> : null}
                             <View style={styles.container}>
                                 <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
 
                                     <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
 
                                 </View>
-                                <view>
+                                <View>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.title}</Text>
                                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                                         {item.price}</Text>
-                                </view>
+                                </View>
 
                             </View>
                         </View>
@@ -127,6 +132,9 @@ export default function BookList() {
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={myItemSeparator}
                 ListEmptyComponent={myListEmpty}
+                refreshControl={
+                    <RefreshControl refreshing={refreshing} onRefresh={loadUserData} />
+                }
             >
             </FlatList>
         </SafeAreaView>
