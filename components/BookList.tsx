@@ -2,100 +2,26 @@ import { StatusBar } from 'expo-status-bar';
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import myItemSeparator from './myItemSeparator';
 import myListEmpty from './myListEmpty';
+import { useState, useEffect } from 'react';
 
-const persons = [
-    {
-        id: "1",
-        name: "Earnest Green",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "2",
-        name: "Winston Orn",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "3",
-        name: "Carlton Collins",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "4",
-        name: "Malcolm Labadie",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "5",
-        name: "Michelle Dare",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "6",
-        name: "Carlton Zieme",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "7",
-        name: "Jessie Dickinson",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "8",
-        name: "Julian Gulgowski",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "9",
-        name: "Ellen Veum",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "10",
-        name: "Lorena Rice",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
+const [refreshing, setRefreshing] = useState(true);
+const [userData, setUserData] = useState([]);
+useEffect(() => {
+    loadUserData();
+}, []);
 
-    {
-        id: "11",
-        name: "Carlton Zieme",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "12",
-        name: "Jessie Dickinson",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "13",
-        name: "Julian Gulgowski",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "14",
-        name: "Ellen Veum",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-    {
-        id: "15",
-        name: "Lorena Rice",
-        src: 'https://picsum.photos/200/300',
-        price: '100',
-    },
-];
+const loadUserData = () => {
+    fetch('https://randomuser.me/api/?results=8')
+        .then((response) => response.json())
+        .then((responseJson) => {
+            setRefreshing(false);
+            var newdata = userData.concat(responseJson.results);
+            setUserData(newdata);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
 
 const apiResponse = [
     { id: "1", title: "레이블라우스", description: "book details", dicount: "10%", price: '57,600', src: 'https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6' },
