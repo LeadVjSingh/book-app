@@ -45,11 +45,12 @@ export default function BookList({ navigation }) {
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={apiResponse}
+                numColumns={2}
                 renderItem={({ item }) => {
                     return (
-                        <View>
+                        <View style={styles.container}>
                             {refreshing ? <ActivityIndicator /> : null}
-                            <View style={styles.container}>
+                            <View >
 
                                 <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
                                     <TouchableHighlight onPressOut={() => navigation.navigate('Details', { item })}>
