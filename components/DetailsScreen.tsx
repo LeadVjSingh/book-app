@@ -3,23 +3,18 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function DetailsScreen({ route }) {
 
-
     return (
         <View>
 
             <View style={styles.container}>
-
-                <View style={{ backgroundColor: '#529FF3', margin: 10 }}>
+                <View style={{ backgroundColor: '#ffffff', margin: 5 }}>
                     <Image source={{ uri: route.params.item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
                 </View>
                 <View style={{ alignItems: 'stretch', flexDirection: 'column' }}>
                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
                         {route.params.item.title} </Text>
                     <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
-                        {route.params.item.description} 원</Text>
-
-
-
+                        {route.params.item.description} 원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원원</Text>
                     <View style={{ alignItems: 'stretch', flexDirection: 'row' }}>
 
                         <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'red' }}>

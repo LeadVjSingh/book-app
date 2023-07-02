@@ -57,15 +57,14 @@ export default function BookList({ navigation }) {
                                         <Image source={{ uri: item.src }} style={{ height: 100, width: 100, alignSelf: 'center' }} />
                                     </TouchableHighlight>
                                 </View>
+                                <Text style={{ paddingVertical: 5, fontSize: 12, color: 'black' }}>
+                                    {item.title} </Text>
                                 <View style={{ alignItems: 'stretch', flexDirection: 'row' }}>
-                                    <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
-                                        {item.title} </Text>
-                                    <Text style={{ paddingVertical: 10, fontSize: 15, paddingStart: 5, paddingEnd: 16, color: 'black' }}>
+                                    <Text style={{ paddingVertical: 5, fontSize: 12, color: 'red', width: '100%' }}>
+                                        {item.dicount} </Text>
+                                    <Text style={{ paddingVertical: 5, alignSelf: 'flex-end', fontSize: 12, color: 'black', width: '100%' }}>
                                         {item.price} 원</Text>
-                                    {/* <Button title="Go to Home" onPress={() => navigation.navigate('Details', { item })} /> */}
                                 </View>
-
-
                             </View>
                         </View>
                     )
@@ -93,12 +92,12 @@ export default function BookList({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 50,
+        padding: 10,
 
     },
     item: {
-        padding: 20,
-        fontSize: 15,
+        padding: 10,
+        fontSize: 8,
         marginTop: 5,
     }
 })
