@@ -10,7 +10,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="자유톡">
-        <Stack.Screen name="자유톡" component={BookList} />
+        <Stack.Screen options={{ title: 'My home', headerShown: false }} name="자유톡" component={BookList} />
         <Stack.Screen name="Details"
           options={({ route }) => (
             { title: route.params.item.title })}
