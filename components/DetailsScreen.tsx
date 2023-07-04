@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default function DetailsScreen({ route }) {
-
+    route.params = { item: { id: "1", title: "레이블라우스", description: "book details", dicount: "10%", price: '57,600', src: 'https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6' } };
     return (
         <View>
 
