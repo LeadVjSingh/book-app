@@ -58,6 +58,11 @@ export default function BookList({ navigation }) {
 
   useEffect(() => {
     loadUserData();
+
+    
+
+
+    // console.log(data)
   }, []);
   const uniqueId = 1;
 
@@ -65,8 +70,11 @@ export default function BookList({ navigation }) {
     setIsLoading(true);
     // Simulating an API call
     setTimeout(() => {
-      data.map((element) => element.id + Math.random().toString());
-      setData((prevData) => [...prevData, ...data]);
+      const newdata = data.map(obj => {
+        return { ...obj, id: obj.id + Math.random().toString() };
+      });
+     
+      setData((prevData) => [...prevData, ...newdata]);
       setPage((prevPage) => prevPage + 1);
       setRefreshing(false);
     }, 1500);
@@ -140,6 +148,7 @@ const styles = StyleSheet.create({
     height: 187,
     width: 187,
     paddingTop: 16,
+    backgroundColor: 'red'
   },
   titleBox: {
     width: 156,
